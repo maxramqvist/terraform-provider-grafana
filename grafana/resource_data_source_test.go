@@ -36,6 +36,9 @@ func TestAccDataSource_basic(t *testing.T) {
 					resource.TestMatchResourceAttr(
 						"grafana_data_source.test_influxdb", "id", regexp.MustCompile(`\d+`),
 					),
+					resource.TestCheckResourceAttr(
+						"grafana_data_source.test_influxdb", "json_data.0.tls_skip_verificatin", "true",
+					),
 				),
 			},
 		},

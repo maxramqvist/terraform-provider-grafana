@@ -97,6 +97,10 @@ func ResourceDataSource() *schema.Resource {
 							Type:     schema.TypeString,
 							Optional: true,
 						},
+						"tls_skip_verification": &schema.Schema{
+							Type:     schema.TypeBool,
+							Optional: true,
+						},
 					},
 				},
 			},
@@ -247,6 +251,7 @@ func makeJSONData(d *schema.ResourceData) gapi.JSONData {
 		DefaultRegion:           d.Get("json_data.0.default_region").(string),
 		CustomMetricsNamespaces: d.Get("json_data.0.custom_metrics_namespaces").(string),
 		AssumeRoleArn:           d.Get("json_data.0.assume_role_arn").(string),
+		TlsSkipVerify:           d.Get("json_data.0.tls_skip_verification").(bool),
 	}
 }
 
